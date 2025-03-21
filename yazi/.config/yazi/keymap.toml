@@ -128,6 +128,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
+    { on = [ "g", "." ],       run = "cd ./..",        desc = "Go to the previous directory" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -369,3 +370,13 @@ desc = "Search file by content (rg)"
 on = ["f", "a"]
 run = "plugin fr rga"
 desc = "Search file by content (rga)"
+
+[[manager.prepend_keymap]]
+on   = "F"
+run  = "plugin smart-filter"
+desc = "Smart filter"
+
+[[manager.prepend_keymap]]
+on   = "M"
+run  = "plugin mount"
+desc = "Mount manager"
