@@ -172,3 +172,7 @@ eval "$(thefuck --alias)"
 
 # Set up zoxide
 eval "$(zoxide init zsh)"
+
+# Tmux aliases
+alias t="tmux"
+alias ta="tmux attach"
