@@ -165,7 +165,7 @@ _fzf_comprun() {
 export BAT_THEME="Coldark-Dark"
 
 # Eza as a replacement for ls
-alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+# alias ls="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
 
 # Set up the thefuck bindings
 eval "$(thefuck --alias)"
@@ -176,3 +176,6 @@ eval "$(zoxide init zsh)"
 # Tmux aliases
 alias t="tmux"
 alias ta="tmux attach"
+
+# Codon compiler path (added by install script)
+export PATH=/home/nardi/.codon/bin:$PATH
