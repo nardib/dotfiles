@@ -9,6 +9,7 @@
         "cpu",
         "memory",
         "temperature",
+        "network",
         "backlight",
         "pulseaudio",
         "battery"
@@ -121,9 +122,9 @@
         "on-click": "pavucontrol",
         "scroll-step": 1,
         "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
+            "headphone": "🎧",
+            "hands-free": "🎧",
+            "headset": "🎧",
             "phone": "",
             "portable": "",
             "car": "",
