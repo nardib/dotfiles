@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "lpnh/fr"
-rev = "6d5e469"
-hash = "d8455f929580ec602b4d0bbd8e96711"
+rev = "3d32e55"
+hash = "f7ab219b58675582ef855a9414dbc659"
 
 [[plugin.deps]]
 use = "Reledia/glow"
@@ -10,7 +10,7 @@ hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "2ad42fa"
+rev = "b886025"
 hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
 
 [[plugin.deps]]
@@ -27,6 +27,46 @@ hash = "a1e38696a2ab2c607923b77f85f8058e"
 use = "KKV9/compress"
 rev = "9fc8fe0"
 hash = "2ad086899bf368fba211a33d8f68c39d"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-enter"
+rev = "de53d90"
+hash = "56fdabc96fc1f4d53c96eb884b02a5be"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-paste"
+rev = "de53d90"
+hash = "a8050052e59f3952abe0b3e27a5843de"
+
+[[plugin.deps]]
+use = "macydnah/office"
+rev = "4002d36"
+hash = "9c68763dd4f2799f7cfee1e9c3e819a9"
+
+[[plugin.deps]]
+use = "ahkohd/eza-preview"
+rev = "b114b01"
+hash = "7676d7da18953f4351048004ab45f0f4"
+
+[[plugin.deps]]
+use = "boydaihungst/file-extra-metadata"
+rev = "ec035d6"
+hash = "b23b7db6beb2854a689c648a38843f8c"
+
+[[plugin.deps]]
+use = "pirafrank/what-size"
+rev = "d896656"
+hash = "62251f94eb67648d42cdfcfb8be0fad2"
+
+[[plugin.deps]]
+use = "atareao/convert"
+rev = "ce060d9"
+hash = "1c0465351f2a344e842f065ab316f265"
+
+[[plugin.deps]]
+use = "pareix/telegram-send"
+rev = "6f91162"
+hash = "f84d828d2b77607c6b066f8cd85598b7"
 
 [[flavor.deps]]
 use = "yazi-rs/flavors:catppuccin-mocha"

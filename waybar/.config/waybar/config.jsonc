@@ -2,16 +2,16 @@
     "layer": "top",
     "position": "top",
     "height": 0,
-    "modules-left": ["clock", "hyprland/workspaces", "custom/notification"],
+    "modules-left": ["clock", "hyprland/workspaces", "custom/notification", "tray"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
-        "tray",
         "cpu",
         "memory",
         "temperature",
         "network",
         "backlight",
         "pulseaudio",
+        "bluetooth",
         "battery"
     ],
 
@@ -91,8 +91,8 @@
             "critical": 20
         },
         "format": "{icon} {capacity}%",
-        "format-charging": "🔌 {capacity}%",
-        "format-plugged": "🔌⚡ {capacity}%",
+        "format-charging": "🔌⚡ {capacity}%",
+        "format-plugged": "🔌 {capacity}%",
         "format-alt": "{time} {icon}",
         //"format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
         "format-icons": ["🪫", "🪫", "🪫", "🪫", "🔋", "🔋", "🔋", "🔋", "🔋", "🔋", "🔋"]
@@ -112,14 +112,15 @@
         "format-wifi": "🛜 {essid}",
         "format-ethernet": " {essid}",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "睊 Disconnected",
+        "format-disconnected": "📵 Disconnected",
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
-        "on-click": "wofi-wifi-menu"
+        "on-click": "wifimenu"
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "🔇 Muted", 
-        "on-click": "pavucontrol",
+        "on-click": "$TERMINAL --class=Wiremix -e wiremix",
+        "on-click-right": "pamixer -t",
         "scroll-step": 1,
         "format-icons": {
             "headphone": "🎧",
@@ -135,9 +136,11 @@
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false,
+        "on-click": "$TERMINAL --class=btop -e btop",
     },
     "memory": {
-        "format": "{}% 💾"
+        "format": "{used} GiB 💾",
+        "on-click": "$TERMINAL --class=btop -e btop",
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -145,6 +148,7 @@
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
         "format": "{temperatureC}°C 🌡",
+        "on-click": "$TERMINAL --class=btop -e btop",
        // "format-icons": ["", "", ""]
     },
     "custom/notification": {
@@ -167,4 +171,16 @@
         "on-click-right": "swaync-client -d -sw",
         "escape": true
     },
+    "bluetooth": {
+	"format": " {status}",
+	"format-connected": " {device_alias}",
+	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
+	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+    "on-click": "$TERMINAL --class=bluetui -e bluetui",
 }
+    }
+  ;

@@ -62,6 +62,7 @@ tooltip {
 #custom-notification,
 #memory,
 #temperature,
+#bluetooth,
 #backlight {
     background: #1e1e2e;
     padding: 0px 10px;
@@ -71,6 +72,7 @@ tooltip {
 }
 
 #tray {
+    margin-left: 10px;
     border-radius: 10px;
     margin-right: 10px;
 }
@@ -160,6 +162,12 @@ tooltip {
 
 #temperature {
     color: #cba6f7;
+    border-left: 0px;
+    border-right: 0px;
+}
+
+#bluetooth {
+    color: #94e2d5;
     border-left: 0px;
     border-right: 0px;
 }

@@ -56,7 +56,7 @@ keymap = [
 	{ on = "J", run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	# Spotting
-	{ on = "<Tab>", run = "spot", desc = "Spot hovered file" },
+      { on = "<Tab>", run = "spot", desc = "Spot hovered file" },
 
 	# Operation
 	{ on = "o",         run = "open",                        desc = "Open selected files" },
@@ -78,7 +78,7 @@ keymap = [
 	{ on = "r",         run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
 	{ on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
 	{ on = ":",         run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
-	{ on = ".",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
+	{ on = [".", "."],         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
 	{ on = "s",         run = "search --via=fd",             desc = "Search files by name via fd" },
 	{ on = "S",         run = "search --via=rg",             desc = "Search files by content via ripgrep" },
 	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
@@ -128,7 +128,7 @@ keymap = [
 	{ on = [ "g", "c" ],       run = "cd ~/.config",     desc = "Goto ~/.config" },
 	{ on = [ "g", "d" ],       run = "cd ~/Downloads",   desc = "Goto ~/Downloads" },
 	{ on = [ "g", "<Space>" ], run = "cd --interactive", desc = "Jump interactively" },
-    { on = [ "g", "u" ],       run = "cd ~/Documents/Università/3ANNO/SecondoSemestre",           desc = "Go to University folder" },
+    { on = [ "g", "u" ],       run = "cd ~/Documents/Università/",           desc = "Go to University folder" },
 
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
@@ -155,6 +155,13 @@ keymap = [
 	# Help
 	{ on = "~",    run = "help", desc = "Open help" },
 	{ on = "<F1>", run = "help", desc = "Open help" },
+
+    # Eza
+    { on = [ "E" ], run = "plugin eza-preview",  desc = "Toggle tree/list dir preview" },
+    { on = [ "-" ], run = "plugin eza-preview inc-level", desc = "Increment tree level" },
+    { on = [ "_" ], run = "plugin eza-preview dec-level", desc = "Decrement tree level" },
+    { on = [ "$" ], run = "plugin eza-preview toggle-follow-symlinks", desc = "Toggle tree follow symlinks" },
+    { on = [ "*" ], run = "plugin eza-preview toggle-hidden", desc = "Toggle hidden files" },
 ]
 
 [tasks]
@@ -419,3 +426,43 @@ desc = "Archive selected files to 7z (password+header)"
 on   = [ "c", "a", "r" ]
 run  = "plugin compress '-p -l rar'"
 desc = "Archive selected files to rar (password+level)"
+
+[[mgr.prepend_keymap]]
+on   = "l"
+run  = "plugin smart-enter"
+desc = "Enter the child directory, or open the file"
+
+[[mgr.prepend_keymap]]
+on   = "p"
+run  = "plugin smart-paste"
+desc = "Paste into the hovered directory or CWD"
+
+[[mgr.prepend_keymap]]
+on  = "<C-n>"
+run = 'shell -- dragon-drop -x -i -T "$1"'
+
+[[mgr.prepend_keymap]]
+on = [ ".", "s" ]
+run  = "plugin what-size"
+desc = "Calc size of selection or cwd"
+
+
+[[mgr.prepend_keymap]]
+on = ["c", "p"]
+run = "plugin convert -- --extension='png'"
+desc = "Convert selected files to PNG"
+
+[[mgr.prepend_keymap]]
+on = ["c", "j"]
+run = "plugin convert -- --extension='jpg'"
+desc = "Convert selected files to JPG"
+
+[[mgr.prepend_keymap]]
+on = ["c", "w"]
+run = "plugin convert -- --extension='webp'"
+desc = "Convert selected files to WebP"
+
+[[mgr.prepend_keymap]]
+on = [ "c", "s" ]
+run = ["plugin telegram-send"]
+desc = "Send with Telegram"

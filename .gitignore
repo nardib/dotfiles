@@ -3,3 +3,8 @@
 
 #Ignore nvim folder
 nvim/
+
+# Ignore bin folder
+bin/
+
+dolphin/

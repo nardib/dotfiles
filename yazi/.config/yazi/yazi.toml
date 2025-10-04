@@ -9,7 +9,7 @@ sort_sensitive = false
 sort_reverse 	 = false
 sort_dir_first = true
 sort_translit  = false
-linemode       = "none"
+linemode       = "size"
 show_hidden    = false
 show_symlink   = true
 scrolloff      = 5
@@ -104,6 +104,8 @@ spotters = [
 	{ mime = "video/*", run = "video" },
 	# Fallback
 	{ name = "*", run = "file" },
+    # File Extra Metadata
+    { name = "*", run = "file-extra-metadata" },
 ]
 preloaders = [
 	# Image
@@ -146,9 +148,30 @@ previewers = [
 	{ mime = "inode/empty", run = "empty" },
 	# Fallback
 	{ name = "*", run = "file" },
+    # File Extra Metadata
+    { name = "*", run = "file-extra-metadata" },
+
+    # Eza
+    { name = "*/", run = "eza-preview" },
 ]
 prepend_previewers = [
   { name = "*.md", run = "glow" },
+
+   # Office Documents
+    { mime = "application/openxmlformats-officedocument.*", run = "office" },
+    { mime = "application/oasis.opendocument.*", run = "office" },
+    { mime = "application/ms-*", run = "office" },
+    { mime = "application/msword", run = "office" },
+    { name = "*.docx", run = "office" },
+]
+
+prepend_preloaders = [
+    # Office Documents
+    { mime = "application/openxmlformats-officedocument.*", run = "office" },
+    { mime = "application/oasis.opendocument.*", run = "office" },
+    { mime = "application/ms-*", run = "office" },
+    { mime = "application/msword", run = "office" },
+    { name = "*.docx", run = "office" },
 ]
 
 [input]
