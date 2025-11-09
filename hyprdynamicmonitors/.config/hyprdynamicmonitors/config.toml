@@ -1,0 +1,68 @@
+[general]
+destination = "$HOME/.config/hypr/monitors.conf"
+
+[power_events]
+
+[power_events.dbus_query_object]
+path = "/org/freedesktop/UPower/devices/line_power_ACAD"
+
+[[power_events.dbus_signal_match_rules]]
+object_path = "/org/freedesktop/UPower/devices/line_power_ACAD"
+
+[lid_events]
+
+[scoring]
+name_match = 10
+description_match = 10
+power_state_match = 3
+lid_state_match = 2
+
+[profiles.laptop_only]
+config_file = '/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/laptop_only.conf'
+config_file_type = "static"
+
+[profiles.laptop_only.conditions]
+power_state = "BAT"
+
+[[profiles.laptop_only.conditions.required_monitors]]
+name = "eDP-1"
+
+
+[profiles.laptop_only_ac]
+config_file = '/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/laptop_only_ac.conf'
+config_file_type = "static"
+
+[profiles.laptop_only_ac.conditions]
+power_state = "AC"
+
+[[profiles.laptop_only_ac.conditions.required_monitors]]
+name = "eDP-1"
+
+[profiles.MSI_only]
+config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_only.conf"
+config_file_type = "static"
+[profiles.MSI_only.conditions]
+lid_state = "Closed"
+
+[[profiles.MSI_only.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.MSI_only.conditions.required_monitors]]
+description = "Microstep MSI MD272QXP PB1H823C00425"
+monitor_tag = "MSI"
+
+
+[profiles.MSI_dual]
+config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_dual.conf"
+config_file_type = "static"
+[profiles.MSI_dual.conditions]
+lid_state = "Opened"
+
+[[profiles.MSI_dual.conditions.required_monitors]]
+name = "eDP-1"
+monitor_tag = "laptop"
+
+[[profiles.MSI_dual.conditions.required_monitors]]
+description = "Microstep MSI MD272QXP PB1H823C00425"
+monitor_tag = "MSI"

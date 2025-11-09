@@ -8,9 +8,9 @@
         "cpu",
         "memory",
         "temperature",
-        "network",
         "backlight",
         "pulseaudio",
+        "network",
         "bluetooth",
         "battery"
     ],
@@ -106,6 +106,8 @@
         "interval": 1,
         "format": "{:%H:%M:%S   %d-%m-%Y}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "on-click": "$TERMINAL --class=tclock -e tclock",
+        "on-click-right": "$TERMINAL --class=calcure -e calcure",
         // "format-alt": "{:%Y-%m-%d}"
     },
     "network": {
@@ -114,12 +116,12 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "📵 Disconnected",
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
-        "on-click": "wifimenu"
+        "on-click": "$TERMINAL --class=nmtui -e nmtui",
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
         "format-muted": "🔇 Muted", 
-        "on-click": "$TERMINAL --class=Wiremix -e wiremix",
+        "on-click": "$TERMINAL --class=Wiremix -e wiremix --tab output",
         "on-click-right": "pamixer -t",
         "scroll-step": 1,
         "format-icons": {
