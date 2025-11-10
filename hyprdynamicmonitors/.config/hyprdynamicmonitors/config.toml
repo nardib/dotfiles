@@ -41,6 +41,7 @@ name = "eDP-1"
 [profiles.MSI_only]
 config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_only.conf"
 config_file_type = "static"
+post_apply_exec = "hyprctl reload"
 [profiles.MSI_only.conditions]
 lid_state = "Closed"
 
@@ -56,6 +57,7 @@ monitor_tag = "MSI"
 [profiles.MSI_dual]
 config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_dual.conf"
 config_file_type = "static"
+post_apply_exec = "hyprctl reload"
 [profiles.MSI_dual.conditions]
 lid_state = "Opened"
 
