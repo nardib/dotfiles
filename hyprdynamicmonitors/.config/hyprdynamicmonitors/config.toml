@@ -18,53 +18,30 @@ power_state_match = 3
 lid_state_match = 2
 
 [profiles.laptop_only]
-config_file = '/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/laptop_only.conf'
-config_file_type = "static"
-
+config_file = '/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/laptop.conf'
+config_file_type = "template"
+post_apply_exec = "hyprctl reload"
 [profiles.laptop_only.conditions]
-power_state = "BAT"
+lid_state = "Opened"
 
 [[profiles.laptop_only.conditions.required_monitors]]
 name = "eDP-1"
+monitor_tag = "laptop"
 
-
-[profiles.laptop_only_ac]
-config_file = '/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/laptop_only_ac.conf'
-config_file_type = "static"
-
-[profiles.laptop_only_ac.conditions]
-power_state = "AC"
-
-[[profiles.laptop_only_ac.conditions.required_monitors]]
-name = "eDP-1"
-
-[profiles.MSI_only]
-config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_only.conf"
-config_file_type = "static"
+[profiles.MSI_attached]
+config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_attached.conf"
+config_file_type = "template"
 post_apply_exec = "hyprctl reload"
-[profiles.MSI_only.conditions]
-lid_state = "Closed"
+[profiles.MSI_attached.conditions]
 
-[[profiles.MSI_only.conditions.required_monitors]]
+[[profiles.MSI_attached.conditions.required_monitors]]
 name = "eDP-1"
 monitor_tag = "laptop"
 
-[[profiles.MSI_only.conditions.required_monitors]]
+[[profiles.MSI_attached.conditions.required_monitors]]
 description = "Microstep MSI MD272QXP PB1H823C00425"
 monitor_tag = "MSI"
 
-
-[profiles.MSI_dual]
-config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/MSI_dual.conf"
+[fallback_profile]
+config_file = "/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/fallback.conf"
 config_file_type = "static"
-post_apply_exec = "hyprctl reload"
-[profiles.MSI_dual.conditions]
-lid_state = "Opened"
-
-[[profiles.MSI_dual.conditions.required_monitors]]
-name = "eDP-1"
-monitor_tag = "laptop"
-
-[[profiles.MSI_dual.conditions.required_monitors]]
-description = "Microstep MSI MD272QXP PB1H823C00425"
-monitor_tag = "MSI"
