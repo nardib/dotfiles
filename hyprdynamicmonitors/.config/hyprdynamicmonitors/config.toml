@@ -22,7 +22,6 @@ config_file = '/home/nardi/.config/hyprdynamicmonitors/hyprconfigs/laptop.conf'
 config_file_type = "template"
 post_apply_exec = "hyprctl reload"
 [profiles.laptop_only.conditions]
-lid_state = "Opened"
 
 [[profiles.laptop_only.conditions.required_monitors]]
 name = "eDP-1"

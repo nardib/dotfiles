@@ -2,9 +2,10 @@
     "layer": "top",
     "position": "top",
     "height": 0,
-    "modules-left": ["clock", "hyprland/workspaces", "custom/notification", "tray"],
+    "modules-left": ["clock", "hyprland/workspaces", "custom/notification", "tray", "custom/privacydots"],
     "modules-center": ["hyprland/window"],
     "modules-right": [
+        "custom/updates",
         "cpu",
         "memory",
         "temperature",
@@ -12,7 +13,8 @@
         "pulseaudio",
         "network",
         "bluetooth",
-        "battery"
+        "hyprland/language",
+        "battery",
     ],
 
     "hyprland/window": {
@@ -63,14 +65,15 @@
         "format": "{icon}"
     },
     "custom/updates": {
-        "exec": "(checkupdates ; paru -Qua) | wc -l",
+        "exec": "(checkupdates ; yay -Qua) | wc -l",
         "interval": 7200,
-        "format": " {}"
+        "on-click": "$TERMINAL --class=yay -e yay -Syu --noconfirm",
+        "format": "{} ⬇️"
     },
-    "custom/language": {
-        "exec": "cat /tmp/kb_layout",
-        "interval": 3,
-        "format": " {}"
+    "hyprland/language": {
+        "format-en": "🇺🇸",
+        "format-it": "🇮🇹",
+        "format": "{}"
     },
     "tray": {
         "icon-size": 13,
@@ -183,6 +186,15 @@
 	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
 	"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
     "on-click": "$TERMINAL --class=bluetui -e bluetui",
-}
+ },
+
+    "custom/privacydots": {
+        "exec": "~/.config/waybar/scripts/privacy_dots.sh",
+        "return-type": "json",
+        "interval": 3,
+        "format": "{text}",
+        "tooltip": true,
+        "escape": false,
+        "markup": "pango"
     }
-  ;
+}

@@ -1,7 +1,7 @@
 [[plugin.deps]]
 use = "lpnh/fr"
-rev = "3d32e55"
-hash = "f7ab219b58675582ef855a9414dbc659"
+rev = "a60466e"
+hash = "ae6f2fb9ea03527e3a367a9faf2690ac"
 
 [[plugin.deps]]
 use = "Reledia/glow"
@@ -10,8 +10,8 @@ hash = "92b5c58159a51c567f82b618cee2b78"
 
 [[plugin.deps]]
 use = "yazi-rs/plugins:smart-filter"
-rev = "b886025"
-hash = "a9d553bd19a3cd7f4eab3abaac5d67ff"
+rev = "2301ff8"
+hash = "bcda8eeb3f4013bae156aecabfc745e8"
 
 [[plugin.deps]]
 use = "SL-RU/mount"
