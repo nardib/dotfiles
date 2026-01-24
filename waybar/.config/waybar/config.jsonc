@@ -46,34 +46,18 @@
          "format": "{name}",
          "on-scroll-up": "hyprctl dispatch workspace m-1 > /dev/null",
          "on-scroll-down": "hyprctl dispatch workspace m+1 > /dev/null",
-         "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-             "5": "",
-             "urgent": "",
-             "focused": "",
-             "default": ""
-         }
      },
-    "custom/caffeine": {
-        "exec": "~/.config/waybar/scripts/caffeine.sh",
-        "return-type": "json",
-        "interval": 3,
-        "format-icons": ["﯈", ""],
-        "format": "{icon}"
-    },
     "custom/updates": {
         "exec": "(checkupdates ; yay -Qua) | wc -l",
         "interval": 7200,
         "on-click": "$TERMINAL --class=yay -e yay -Syu --noconfirm",
-        "format": "{} ⬇️"
+        "format": "{} 󰣇",
+        "tooltip-format": "System Updates Available",
     },
     "hyprland/language": {
+        "format": "{}",
         "format-en": "🇺🇸",
         "format-it": "🇮🇹",
-        "format": "{}"
     },
     "tray": {
         "icon-size": 13,
@@ -81,8 +65,7 @@
     },
     "backlight": {
         "device": "intel_backlight",
-        "format": "🌞 {percent}%",
-        //"format-icons": ["", "", ""],
+        "format": "󰛨 {percent}%",
         "on-scroll-up": "brightnessctl set 1%+",
         "on-scroll-down": "brightnessctl set 1%-",
         "min-length": 6
@@ -94,11 +77,10 @@
             "critical": 20
         },
         "format": "{icon} {capacity}%",
-        "format-charging": "🔌⚡ {capacity}%",
-        "format-plugged": "🔌 {capacity}%",
+        "format-charging": "󰚥󱐋 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
         "format-alt": "{time} {icon}",
-        //"format-icons": ["", "", "", "", "", "", "", "", "", "", ""]
-        "format-icons": ["🪫", "🪫", "🪫", "🪫", "🔋", "🔋", "🔋", "🔋", "🔋", "🔋", "🔋"]
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     //"clock": {
       //  "format": "{: %R   %d/%m}",
@@ -114,28 +96,30 @@
         // "format-alt": "{:%Y-%m-%d}"
     },
     "network": {
-        "format-wifi": "🛜 {essid}",
-        "format-ethernet": " {essid}",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "📵 Disconnected",
+        "format-wifi": "{icon} {essid}",
+        "format-icons": ["󰤟", "󰤢", "󰤥", "󰤨"],
+        "format-ethernet": "󰌗 {essid}",
+        "format-linked": "{ifname} (No IP) 󰖂",
+        "format-disconnected": "󰤭",
+        "tooltip-format-disconnected": "No Network Connection",
         "tooltip-format-wifi": "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}",
         "on-click": "$TERMINAL --class=nmtui -e nmtui",
     },
     "pulseaudio": {
         "format": "{icon} {volume}%",
-        "format-muted": "🔇 Muted", 
+        "format-muted": "󰝟 Muted", 
         "on-click": "$TERMINAL --class=Wiremix -e wiremix --tab output",
         "on-click-right": "pamixer -t",
         "scroll-step": 1,
         "format-icons": {
-            "headphone": "🎧",
-            "hands-free": "🎧",
-            "headset": "🎧",
+            "headphone": "󰋋",
+            "hands-free": "󰋋",
+            "headset": "󰋋",
             "phone": "",
             "portable": "",
             "car": "",
-            //"default": ["", "", "墳", ""]
-            "default": "🔊"
+            "default": ["󰕿", "󰖀", "󰕾"]
+            //"default": "🔊"
         }
     },
     "cpu": {
@@ -144,17 +128,16 @@
         "on-click": "$TERMINAL --class=btop -e btop",
     },
     "memory": {
-        "format": "{used} GiB 💾",
+        "format": "{used} GiB ",
         "on-click": "$TERMINAL --class=btop -e btop",
     },
     "temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-        "critical-threshold": 80,
+        "critical-threshold": 70,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C 🌡",
+        "format": "{temperatureC}°C ",
         "on-click": "$TERMINAL --class=btop -e btop",
-       // "format-icons": ["", "", ""]
     },
     "custom/notification": {
         "tooltip": false,
@@ -178,8 +161,8 @@
     },
     "bluetooth": {
 	"format": " {status}",
-	"format-connected": " {device_alias}",
-	"format-connected-battery": " {device_alias} {device_battery_percentage}%",
+	"format-connected": "󰂱 {device_alias}",
+	"format-connected-battery": "󰂱 {device_alias} {device_battery_percentage}%",
 	// "format-device-preference": [ "device1", "device2" ], // preference list deciding the displayed device
 	"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
 	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",

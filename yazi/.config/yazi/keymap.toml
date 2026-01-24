@@ -63,9 +63,9 @@ keymap = [
 	{ on = "O",         run = "open --interactive",          desc = "Open selected files interactively" },
 	{ on = "<Enter>",   run = "open",                        desc = "Open selected files" },
 	{ on = "<S-Enter>", run = "open --interactive",          desc = "Open selected files interactively" },
-	{ on = "y",         run = "yank",                        desc = "Yank selected files (copy)" },
+	#{ on = "y",         run = "yank",                        desc = "Yank selected files (copy)" },
 	{ on = "x",         run = "yank --cut",                  desc = "Yank selected files (cut)" },
-	{ on = "p",         run = "paste",                       desc = "Paste yanked files" },
+	#{ on = "p",         run = "paste",                       desc = "Paste yanked files" },
 	{ on = "P",         run = "paste --force",               desc = "Paste yanked files (overwrite if the destination exists)" },
 	{ on = "-",         run = "link",                        desc = "Symlink the absolute path of yanked files" },
 	{ on = "_",         run = "link --relative",             desc = "Symlink the relative path of yanked files" },
@@ -98,7 +98,6 @@ keymap = [
 	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the directory path" },
 	{ on = [ "c", "f" ], run = "copy filename",         desc = "Copy the filename" },
 	{ on = [ "c", "n" ], run = "copy name_without_ext", desc = "Copy the filename without extension" },
-
 	# Filter
 	{ on = [ "f", "f" ], run = "filter --smart", desc = "Filter files" },
 
@@ -466,3 +465,13 @@ desc = "Convert selected files to WebP"
 on = [ "c", "s" ]
 run = ["plugin telegram-send"]
 desc = "Send with Telegram"
+
+[[mgr.prepend_keymap]]
+on = "p"
+run = "plugin ucp paste"
+desc = "Paste"
+
+[[mgr.prepend_keymap]]
+on = "y"
+run = "plugin ucp copy"
+desc = "Copy" 
